@@ -29,11 +29,10 @@ namespace SeidorTestv1.Views
             var cancellationToken = new CancellationToken();
 
             var file = this.BindingContext as DocumentItem;
-            System.Diagnostics.Debug.WriteLine("Url: {0}", file.Url);
 
             var filename = await App.DocumentManager.DownloadFileAsync(file.Url, progress, cancellationToken);
 
-            var answer = await DisplayAlert("Descarga", "El archivo ha sido descargado", "OK", "ABRIR");
+            var answer = await DisplayAlert("Descarga terminada", "El archivo fue descargado", "Descartar", "Abrir");
             if (!answer)
             {
                 await Navigation.PushAsync(new WebViewPageCS(filename));

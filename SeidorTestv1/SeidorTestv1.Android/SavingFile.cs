@@ -15,8 +15,6 @@ namespace SeidorTestv1
         {
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filePath = Path.Combine(documentsPath, filename);
-            System.Diagnostics.Debug.WriteLine(filePath);
-            System.Diagnostics.Debug.WriteLine("++++++++++++++++++++++++++++++");
             using (FileStream fs = File.Create(filePath))
             {
                 try
@@ -27,7 +25,6 @@ namespace SeidorTestv1
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex);
-                    System.Diagnostics.Debug.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 }
                 
             }

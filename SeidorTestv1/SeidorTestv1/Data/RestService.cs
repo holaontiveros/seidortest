@@ -34,7 +34,6 @@ namespace SeidorTestv1
                 var response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
-                    System.Diagnostics.Debug.WriteLine("in if");
                     var content = await response.Content.ReadAsStringAsync();
                     Items = JsonConvert.DeserializeObject<ObservableCollection<DocumentItem>>(content);
                 }
@@ -94,7 +93,6 @@ namespace SeidorTestv1
                 var filename = System.IO.Path.GetFileName(fileURI.AbsolutePath);
 
                 await DependencyService.Get<ISavingFile>().Save(filename, fileContent, token);
-                Debug.WriteLine("file written: {0}", filename);
 
                 return filename;
             }
